@@ -27,13 +27,13 @@ class Tag(models.Model):
 # 게시물 모델
 class Post(models.Model): # pk값 지정 안 하면 Django가 알아서 판단하고 생성
     title = models.CharField(max_length=200)
-    author = models.ForeignKey(User, on_delete=models.CASECADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     body =  models.TextField()
     image = models.ImageField(upload_to = 'post_images/')
     date = models.DateTimeField(auto_now_add=True)
 
-    category = models.ForeignKey(Category, on_delet=models.CASCADE)
-    tag = models.ForeignKey(Tag, through='PostTag')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    tags = models.ManyToManyField(Tag, through='PostTag')
 
 
     def __str__(self):
@@ -49,26 +49,6 @@ class Comment(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     post = models.ForeignKey(Post, null=True, blank=True, on_delete=models.CASCADE) #null = True, blank=True 는 옵션. 없어도 괜찮다는 말임.
-
-    def __str__(self):
-        return self.comment
-
-class FreePost(models.Model):
-    title = models.CharField(max_length=200)
-    body =  models.TextField()
-    date = models.DateTimeField(auto_now_add=True)
-
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.title
-
-
-class FreeComment(models.Model):
-    comment = models.TextField()
-    date = models.DateTimeField(auto_now_add=True)
-
-    post = models.ForeignKey(FreePost, null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.comment
