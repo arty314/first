@@ -13,7 +13,7 @@
 다대다 관계에 대한 연결테이블로 설정하기 위해서 Post 모델안에서 ManyToManyField 를 사용하실 수 있는 것도 참고하시면 좋을 것 같아요! -> 확인 및 수정 완료
 
 
-- 참고 링크
+- 참고한 링크
 
 다대다관계 : https://fmhelp.filemaker.com/help/16/fmp/ko/index.html#page/FMP_Help/many-to-many-relationships.html
 
