@@ -1,10 +1,8 @@
-from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.contrib import messages
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Blog, Post, Category, Tag
 from .forms import BlogForm, PostForm, CategoryForm, TagForm
-
-# from django.db import models
-# from django.contrib.auth.models import User
-
 
 def home(request):
     #posts = Post.objects.all()
@@ -21,8 +19,8 @@ def home(request):
 
 
 # Blog CRUD
-def blog_creat(request):
-    if request.method == 'BLOG':
+def blog_create(request):
+    if request.method == 'POST':
         form = BlogForm(request.BLOG)
         if form.is_valid():
             blog = form.save()
@@ -45,7 +43,7 @@ def blog_detail(request, pk):
 def blog_update(request, pk):
     blog = get_object_or_404(Blog, pk=pk)
     if request.method == 'POST':
-        form = BlogForm(request.Blog, instance=blog)
+        form = BlogForm(request.POST, instance=blog)
         if form.is_valid():
             blog = form.save(commit=False)
             blog.save()
@@ -107,7 +105,7 @@ def post_delete(request, pk):
 # Category CRUD
 def category_create(request):
     if request.method == 'CATEGORY':
-        form = CategoryForm(request.CATEGORY)
+        form = CategoryForm(request.POST)
         if form.is_valid():
             category = form.save(commit=False)
             category.save()
@@ -138,7 +136,7 @@ def category_update(request, pk):
         form = CategoryForm(instance=category)
     return HttpResponse('Category update.')
 
-def post_delete(request, pk):
+def category_delete(request, pk):
     category = get_object_or_404(Category, pk=pk)
     category.delete()
     messages.success(request, "Category deleted successfully.")
