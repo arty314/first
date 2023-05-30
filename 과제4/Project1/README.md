@@ -1,7 +1,17 @@
 ## CRUD 과제 코드리뷰
 
-리뷰어 : 
+리뷰어 : 김경민 님
 
+[리뷰 notion](https://www.notion.so/Task3_-2e5b4ec5b8fe42128ccb3f168faf2761)
+
+> 요약
+> 1. Forms.py 파일에서 fields 작성 시 단일 원소를 가질 때에도 쉼표를 붙여주어야 한다.
+> 2. urls.py 파일에서 오타
+> 3. views.py 파일에서
+>  * 필요한 import를 추가하지 않음
+>  * request.method 오류. 올바른 HTTP 메소드를 사용하지 않음
+>  * request.BLOG와 request.CATEGORY가 아니라 request.POST를 사용해야 form 데이터에 접근 할 수 있을 것이라고 생각됨.
+>  * 일부 함수의 이름에 오타.
 
 
 ### 리뷰 받기 전 회고
