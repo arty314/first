@@ -5,7 +5,7 @@ from .models import Blog, Post, Category, Tag
 class BlogForm(forms.ModelForm):
     class Meta:
         model = Blog
-        fields = ('blog_name')
+        fields = ('blog_name',)
 
 
 class PostForm(forms.ModelForm):
