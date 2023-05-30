@@ -25,7 +25,7 @@ urlpatterns = [
 
     path('tag/create/', views.tag_create, name='tag_create'),
     path('tag/', views.tag_list, name='tag_list'),
-    path('tag.<int:pk>/', views.tag_detail, name='tag_detaile'),
+    path('tag/<int:pk>/', views.tag_detail, name='tag_detaile'),
     path('tag/<int:pk>/update/', views.tag_update, name='tag_update'),
     path('tag/<int:pk>/delete/', views.tag_delete, name='tag_delete'),
 ]
