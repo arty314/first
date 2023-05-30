@@ -25,12 +25,12 @@ def blog_creat(request):
     if request.method == 'BLOG':
         form = BlogForm(request.BLOG)
         if form.is_valid():
-            blog = form.save() #commit=False는 뭐재
+            blog = form.save()
             blog.owner = request.user
             return HttpResponseRedirect(reverse('blog_detail', args=[blog.pk]))
     else:
         form = BlogForm()
-        return HttpResponseRedirect(reverse('blog_create')) # 얜 뭐지
+        return HttpResponseRedirect(reverse('blog_create'))
 
 def blog_list(request):
     blog = Blog.blogobjects.all()
@@ -103,14 +103,6 @@ def post_delete(request, pk):
     messages.success(request, "Post deleted successfully.")
     return redirect('home')
 
-# def post_Delete_view(request, pk) :
-#     post = get_object_or_404(Post, pk=pk)
-#     post.delete()
-#     messages.success(request, "Post deleted successfully.")
-#     return redirect('home')
-
-
-
 
 # Category CRUD
 def category_create(request):
@@ -151,9 +143,3 @@ def post_delete(request, pk):
     category.delete()
     messages.success(request, "Category deleted successfully.")
     return redirect('category_list')
-
-# def post_Delete_view(request, pk) :
-#     category = get_object_or_404(Category, pk=pk)
-#     category.delete()
-#     messages.success(request, "Category deleted successfully.")
-#     return redirect('home')
