@@ -6,7 +6,7 @@
 
 ### 리뷰 받기 전 회고
  - comment CRUD 빼먹음...😨
- - views.py에서 Tag에 대한 CRUD 빼먹음
+ - views.py에서 Tag에 대한 CRUD 빼먹음.
    그럼에도 불구하고 Tag에 대한 CRUD가 가능했던 이유?
    
     > Django의 Admin 기능을 통해 생성한 경우, Tag 모델에 대한 CURD 작업을 수행할 수 있었던 것 같습니다. Django의 Admin은 관리자용 인터페이스를 제공하며, 기본적으로 모든 모델에 대한 CURD 작업을 수행할 수 있도록 설정되어 있습니다.
